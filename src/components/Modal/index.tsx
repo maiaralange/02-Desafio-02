@@ -14,7 +14,7 @@ export function Modal({ isOpen, setIsOpen, children }: ModalProps) {
     if (isOpen !== modalStatus) {
       setModalStatus(isOpen);
     }
-  }, [isOpen]);
+  }, [isOpen, modalStatus]);
 
   return (
     <ReactModal
