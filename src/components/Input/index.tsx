@@ -1,13 +1,14 @@
 import { useField } from '@unform/core';
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Container } from './styles';
 
-interface InputProps {
+interface Props {
   name: string;
-  children: ReactNode;
 }
 
-export function Input({ name, ...children }: InputProps) {
+type InputProps = JSX.IntrinsicElements['input'] & Props;
+
+export function Input({ name, ...rest }: InputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
@@ -37,7 +38,7 @@ export function Input({ name, ...children }: InputProps) {
         onBlur={handleInputBlur}
         defaultValue={defaultValue}
         ref={inputRef}
-        {...children}
+        {...rest}
       />
     </Container>
   );
