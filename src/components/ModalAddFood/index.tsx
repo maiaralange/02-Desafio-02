@@ -5,7 +5,7 @@ import Input from '../Input';
 import { Modal, ModalProps } from '../Modal';
 import { Form } from './styles';
 
-type FoodInput = Omit<FoodInfo, 'available'>;
+export type FoodInput = Omit<FoodInfo, 'available'>;
 
 interface ModalAddFoodProps extends ModalProps {
   handleAddFood: (food: FoodInput) => void;
